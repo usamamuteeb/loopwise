@@ -1,0 +1,18 @@
+# Publishes scheduled posts: a post dated in the future stays hidden until the site is rebuilt on/after that date.
+# Setup: create a Deploy Hook in Vercel (Project -> Settings -> Git -> Deploy Hooks) or Netlify (Build hooks),
+# then save its URL as a GitHub repository secret named DEPLOY_HOOK_URL.
+name: Daily rebuild
+on:
+  schedule:
+    - cron: "5 0 * * *"   # every day at 00:05 UTC
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy hook
+        env:
+          HOOK: ${{ secrets.DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "DEPLOY_HOOK_URL secret is not set; nothing to do."; exit 0; fi
+          curl -fsS -X POST "$HOOK"

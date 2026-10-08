@@ -1,0 +1,22 @@
+{
+  "name": "loopwise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Loopwise - tested AI automation workflows, tool profiles and tutorials.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "node scripts/check-links.mjs",
+    "og": "node scripts/make-images.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "marked": "^18.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.0"
+  }
+}

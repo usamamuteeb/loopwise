@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "claude",
+    "name": "Claude",
+    "kind": "AI assistant and API",
+    "url": "https://claude.ai",
+    "affiliateUrl": "",
+    "tagline": "Long-context assistant with a developer API built for tool use.",
+    "summary": "Anthropic's assistant is available as a chat app and as an API. Most Loopwise tutorials use the API because it is easy to script and it handles long documents and structured output well.",
+    "goodFor": [
+      "Summarising and extracting data from long documents",
+      "Code review, refactoring and explaining unfamiliar code",
+      "Building agents that call your own functions (tool use)"
+    ],
+    "skipIf": [
+      "You need image generation inside the same product",
+      "Your team is locked into another vendor's enterprise contract"
+    ],
+    "pricing": "A free plan exists for the chat app. API usage is billed per token, so check the current price list before you budget.",
+    "related": ["chatgpt", "perplexity"]
+  },
+  {
+    "slug": "chatgpt",
+    "name": "ChatGPT",
+    "kind": "AI assistant and API",
+    "url": "https://chatgpt.com",
+    "affiliateUrl": "",
+    "tagline": "General-purpose assistant with a large ecosystem around it.",
+    "summary": "OpenAI's assistant has a wide set of built-in features and the biggest library of third-party integrations. It is a sensible default when you want one tool for many different tasks.",
+    "goodFor": [
+      "Mixed everyday work: writing, analysis, brainstorming",
+      "Teams that want the widest choice of integrations",
+      "Prototyping with an API that most tutorials already support"
+    ],
+    "skipIf": [
+      "You want to keep every workflow portable across model providers",
+      "You only need one narrow task and a specialist tool does it better"
+    ],
+    "pricing": "A free plan exists. Paid plans and API pricing change often, so confirm on the official pricing page.",
+    "related": ["claude", "perplexity"]
+  },
+  {
+    "slug": "cursor",
+    "name": "Cursor",
+    "kind": "AI code editor",
+    "url": "https://cursor.com",
+    "affiliateUrl": "",
+    "tagline": "A code editor built around chatting with your codebase.",
+    "summary": "Cursor is a fork of the VS Code editor with AI features built in: inline edits, codebase-aware chat and multi-file changes. If you already use VS Code, the move is low-friction.",
+    "goodFor": [
+      "Making edits across several files at once",
+      "Exploring a codebase you did not write",
+      "Developers who already live in VS Code"
+    ],
+    "skipIf": [
+      "Your company restricts which editors can touch source code",
+      "You prefer a terminal-only workflow"
+    ],
+    "pricing": "A free tier exists with limits. Paid plans raise the limits. Check current plans before committing.",
+    "related": ["github-copilot", "claude"]
+  },
+  {
+    "slug": "github-copilot",
+    "name": "GitHub Copilot",
+    "kind": "AI coding assistant",
+    "url": "https://github.com/features/copilot",
+    "affiliateUrl": "",
+    "tagline": "Autocomplete and chat that plug into the editor you already use.",
+    "summary": "Copilot works inside VS Code, JetBrains IDEs and other editors, and integrates with GitHub pull requests. It is the least disruptive way to add AI to an existing team workflow.",
+    "goodFor": [
+      "Teams already on GitHub",
+      "Staying in JetBrains or Visual Studio rather than switching editors",
+      "Inline completion while you type"
+    ],
+    "skipIf": [
+      "You want deep, editor-level multi-file refactors as the main feature",
+      "Your code can't leave your own infrastructure"
+    ],
+    "pricing": "A limited free plan exists and paid individual and business plans add more. Check GitHub's current pricing page.",
+    "related": ["cursor", "claude"]
+  },
+  {
+    "slug": "n8n",
+    "name": "n8n",
+    "kind": "Workflow automation",
+    "url": "https://n8n.io",
+    "affiliateUrl": "",
+    "tagline": "Visual workflow automation you can self-host.",
+    "summary": "n8n connects apps with a node-based editor and lets you drop into code when the visual blocks run out. Because it can be self-hosted, it suits workflows that handle data you don't want to send through a third-party SaaS.",
+    "goodFor": [
+      "Complex branching workflows with custom code steps",
+      "Keeping data on your own server",
+      "Building AI agents that call several apps"
+    ],
+    "skipIf": [
+      "You never want to maintain a server and need a fully hands-off tool",
+      "Your workflows are three simple steps; a simpler tool is faster to set up"
+    ],
+    "pricing": "The self-hosted community edition is free to run on your own server. A paid cloud service is also available.",
+    "related": ["zapier", "make"]
+  },
+  {
+    "slug": "zapier",
+    "name": "Zapier",
+    "kind": "Workflow automation",
+    "url": "https://zapier.com",
+    "affiliateUrl": "",
+    "tagline": "The largest catalogue of app connections, with the lowest setup effort.",
+    "summary": "Zapier trades flexibility for speed. If an app exists, it probably has a Zapier integration, and a simple automation takes minutes to build.",
+    "goodFor": [
+      "Non-developers who want results in an afternoon",
+      "Connecting niche SaaS products",
+      "Simple trigger-and-action automations"
+    ],
+    "skipIf": [
+      "You run high volumes and cost per task matters",
+      "You need loops, heavy branching or custom code on every run"
+    ],
+    "pricing": "A free plan with limited tasks exists. Paid plans scale with task volume.",
+    "related": ["make", "n8n"]
+  },
+  {
+    "slug": "make",
+    "name": "Make",
+    "kind": "Workflow automation",
+    "url": "https://www.make.com",
+    "affiliateUrl": "",
+    "tagline": "Visual automation with more control than Zapier at a lower entry cost.",
+    "summary": "Make sits between Zapier and n8n: a visual canvas with routers, iterators and data mapping, hosted for you. It rewards people who are willing to learn its data model.",
+    "goodFor": [
+      "Multi-branch scenarios without writing code",
+      "Moving structured data between several apps",
+      "Budget-conscious automation at moderate volume"
+    ],
+    "skipIf": [
+      "You want the simplest possible interface",
+      "You need to self-host"
+    ],
+    "pricing": "A free plan exists with monthly operation limits. Paid plans scale with operations.",
+    "related": ["zapier", "n8n"]
+  },
+  {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "kind": "AI search",
+    "url": "https://www.perplexity.ai",
+    "affiliateUrl": "",
+    "tagline": "Answers with sources, built for research rather than conversation.",
+    "summary": "Perplexity searches the web and returns a cited answer. It is a good first stop for research because you can check every claim against the link beside it.",
+    "goodFor": [
+      "Fast background research with citations",
+      "Checking current facts that a plain chat model may not know",
+      "Comparing products or reading around a topic"
+    ],
+    "skipIf": [
+      "You need long-form drafting or code generation as the main task",
+      "You can't use a tool that sends queries to a search backend"
+    ],
+    "pricing": "A free tier exists and paid plans add more advanced searches. Check the current plans.",
+    "related": ["chatgpt", "claude"]
+  }
+]
