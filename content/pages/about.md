@@ -28,7 +28,7 @@ If you find a mistake, please tell us at [{{site.email}}](mailto:{{site.email}})
 Reading is free. The site is supported by:
 
 - **Display advertising** shown only to readers who accept cookies.
-- **Affiliate links** to some tools. If you buy through one we may earn a commission at no extra cost to you. Read the [affiliate disclosure](/affiliate-disclosure/).
+- **Affiliate links** to some tools, once we join their programmes. If you buy through one we may earn a commission at no extra cost to you. Read the [affiliate disclosure](/affiliate-disclosure/).
 - **Reader support and sponsorships.** Sponsored content, when it appears, is labelled. See [Advertise](/advertise/).
 
 Money never decides whether a tool gets a good or bad write-up in an article. If you ever think it did, tell us.

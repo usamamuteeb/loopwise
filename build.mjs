@@ -56,8 +56,10 @@ for (const t of tools) {
     if (!t[k]) throw new Error(`data/tools.json: "${t.slug || t.name}" is missing "${k}"`);
   }
 }
-const missingAffiliate = tools.filter((t) => !t.affiliateUrl).map((t) => t.name);
-if (missingAffiliate.length) warn(`No affiliateUrl yet for: ${missingAffiliate.join(", ")}. Their /go/ links send visitors to the plain site URL until you add one in data/tools.json.`);
+const affiliateTools = tools.filter((t) => t.affiliateUrl);
+const affiliates = new Set(affiliateTools.map((t) => t.slug));
+T.state.hasAffiliates = affiliates.size > 0;
+if (!affiliates.size) warn("No affiliate links configured, so no affiliate disclosures are shown. When you join a programme, paste the tracking URL into data/tools.json (affiliateUrl) and they turn on automatically.");
 T.state.tools = tools;
 
 // Posts dated "today" anywhere on Earth are published: use the date in the furthest-ahead time zone (UTC+14).
@@ -81,7 +83,7 @@ function loadPosts() {
       warn(`Scheduled: "${data.title}" (${isoDate(data.date)}) is hidden until its date. Rebuild on/after that day.`);
       continue;
     }
-    const { html, toc, words } = renderMarkdown(body, { siteHost: host });
+    const { html, toc, words } = renderMarkdown(body, { siteHost: host, affiliates });
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
     const readingTime = Math.max(1, Math.ceil(words / site.wordsPerMinute));
     const hasOg = existsSync(join(ROOT, "static/og", `${slug}.png`));
@@ -119,6 +121,9 @@ const vars = {
   "author.role": site.author.role,
   "author.bio": site.author.bio,
   year: String(new Date().getFullYear()),
+  "affiliate.status": affiliateTools.length
+    ? `At the moment, links to ${affiliateTools.map((t) => t.name).join(", ")} are affiliate links.`
+    : "At the moment, none of the links on this site are affiliate links. If that changes, this page will say so.",
 };
 const fill = (s) => s.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (m, k) => (k in vars ? vars[k] : m));
 
@@ -126,7 +131,7 @@ const staticPages = [];
 for (const file of readdirSync(join(ROOT, "content/pages")).filter((f) => f.endsWith(".md"))) {
   const slug = file.replace(/\.md$/, "");
   const { data, body } = parseFrontmatter(read(`content/pages/${file}`), file);
-  const { html } = renderMarkdown(fill(body), { siteHost: host });
+  const { html } = renderMarkdown(fill(body), { siteHost: host, affiliates });
   staticPages.push({
     slug,
     path: `/${slug}/`,
@@ -182,10 +187,12 @@ let redirects = "";
 for (const tool of tools) {
   writePage(`/tools/${tool.slug}/`, T.toolPage(tool));
   sitemap.push({ path: `/tools/${tool.slug}/` });
-  writePage(`/go/${tool.slug}/`, T.goPage(tool));
-  redirects += `/go/${tool.slug}  ${tool.affiliateUrl || tool.url}  302\n`;
+  if (tool.affiliateUrl) {
+    writePage(`/go/${tool.slug}/`, T.goPage(tool));
+    redirects += `/go/${tool.slug}  ${tool.affiliateUrl}  302\n`;
+  }
 }
-write("_redirects", redirects);
+if (redirects) write("_redirects", redirects);
 
 writePage("/newsletter/", T.newsletterPage());
 sitemap.push({ path: "/newsletter/" });
@@ -299,9 +306,7 @@ write(
 // 6. Report
 // ---------------------------------------------------------------------------
 if (!site.analytics.ga4) warn("GA_MEASUREMENT_ID is not set, so analytics is off.");
-if (!process.env.SITE_URL) warn(`SITE_URL is not set. Using the placeholder ${site.url}; canonical URLs and the sitemap will be wrong until you set it.`);
-if (!process.env.AUTHOR_NAME) warn(`AUTHOR_NAME is not set. Posts are bylined "${site.author.name}"; use your real name before applying to AdSense.`);
-if (!process.env.CONTACT_EMAIL) warn(`CONTACT_EMAIL is not set. Using ${site.contactEmail}; make sure that mailbox exists.`);
+if (host.endsWith(".vercel.app") || host.endsWith(".netlify.app")) warn(`Site is on the free ${host} address. Once you buy a custom domain, set SITE_URL to it. AdSense needs a domain you own, so plan on getting one before you apply.`);
 
 const pageCount = sitemap.length + tools.length /* go pages */ + 3;
 console.log(`Built ${plural(posts.length, "article")}, ${plural(tools.length, "tool profile")}, ${plural(staticPages.length, "static page")} -> ${relative(process.cwd(), DIST) || "dist"}/ (~${pageCount} HTML pages)`);

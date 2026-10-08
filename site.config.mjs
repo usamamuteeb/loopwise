@@ -1,4 +1,6 @@
 // Everything you are likely to change lives here or in environment variables.
+// The public defaults below (site URL, author name, contact email) are what the live site uses;
+// set SITE_URL / AUTHOR_NAME / CONTACT_EMAIL as environment variables to override them (e.g. when you add a custom domain).
 // Set env vars in Vercel / Netlify / Cloudflare (Project Settings -> Environment Variables).
 
 import { existsSync, readFileSync } from "node:fs";
@@ -19,7 +21,7 @@ if (existsSync(envFile)) {
 
 const env = process.env;
 
-const url = (env.SITE_URL || "https://loopwise.dev").replace(/\/+$/, "");
+const url = (env.SITE_URL || "https://loopwise-pied.vercel.app").replace(/\/+$/, "");
 const host = new URL(url).hostname;
 
 export default {
@@ -34,7 +36,7 @@ export default {
   // Author shown on posts, in JSON-LD and on the About page. Replace with your real name and bio:
   // AdSense and readers both trust a real, named author.
   author: {
-    name: env.AUTHOR_NAME || "Loopwise Editorial",
+    name: env.AUTHOR_NAME || "Usama M",
     role: env.AUTHOR_ROLE || "Developer and automation writer",
     bio:
       env.AUTHOR_BIO ||
@@ -44,7 +46,7 @@ export default {
     linkedin: env.AUTHOR_LINKEDIN || "", // full URL
   },
 
-  contactEmail: env.CONTACT_EMAIL || `hello@${host}`,
+  contactEmail: env.CONTACT_EMAIL || "usamamuteeb9@gmail.com",
 
   // ---- Monetisation switches (everything is off until you set the value) ----
   adsense: {

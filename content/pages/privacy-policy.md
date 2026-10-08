@@ -29,7 +29,7 @@ We show ads from Google AdSense. Google and its partners may use cookies and sim
 
 ### Affiliate links
 
-Some links on this site are affiliate links. When you click one, you leave {{site.name}} and the destination company may set its own cookies to attribute a sale to us. Their privacy policy governs what they do. We count clicks in aggregate through analytics, if you accepted cookies. See the [affiliate disclosure](/affiliate-disclosure/).
+Some links on this site may be affiliate links. When you click one, you leave {{site.name}} and the destination company may set its own cookies to attribute a sale to us. Their privacy policy governs what they do. We count clicks in aggregate through analytics, if you accepted cookies. See the [affiliate disclosure](/affiliate-disclosure/).
 
 ### Hosting and logs
 

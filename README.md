@@ -100,7 +100,7 @@ Intro paragraph. Use ## and ### headings; they become the table of contents.
 ## Earning money: what to do and when
 
 1. **Weeks 1-4: publish and get indexed.** Deploy, verify the site in Google Search Console, submit `/sitemap.xml`, and publish consistently. Share each post where developers actually read (relevant subreddits, Hacker News when it is genuinely useful, X, LinkedIn).
-2. **Affiliate links first, ads second.** Apply to each tool's affiliate or partner programme (search "<tool> affiliate program"), then paste the tracking URL into `affiliateUrl` in `data/tools.json`. For a small developer audience, affiliate and sponsorship income per visitor is usually much higher than AdSense.
+2. **Affiliate links first, ads second.** Apply to each tool's affiliate or partner programme (search "<tool> affiliate program"), then paste the tracking URL into `affiliateUrl` in `data/tools.json`. Until you do, the site shows no affiliate notices and links to those tools are plain links; adding a URL switches the `/go/` tracking, "sponsored" marking and disclosures on for that tool automatically. For a small developer audience, affiliate and sponsorship income per visitor is usually much higher than AdSense.
 3. **Apply to AdSense** once you have roughly 15-20 substantial original posts and the About, Contact, Privacy and Terms pages (all included). Set `ADSENSE_CLIENT`, create three ad units and set the slot variables.
 4. **Newsletter.** The list is the asset you own. Send a short weekly issue; sponsorships of 1 slot per issue become possible once you have a few thousand engaged subscribers.
 5. **Reader support.** Add your Ko-fi or Patreon URL once there is something readers value.

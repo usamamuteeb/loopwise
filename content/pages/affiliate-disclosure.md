@@ -4,13 +4,15 @@ description: How Loopwise uses affiliate links and advertising, and what that me
 updated: "2026-10-09"
 ---
 
-{{site.name}} is free to read, and some of the money that keeps it running comes from affiliate links and advertising. This page explains exactly how that works.
+{{site.name}} is free to read. It may earn money from advertising and, in future, from affiliate links. This page explains exactly how that works.
 
 ## Affiliate links
 
-Some links to tools and services on this site are affiliate links. If you click one and later sign up or buy, the company may pay us a commission. **It costs you nothing extra**, and in some cases a link may give you a discount or longer trial.
+An affiliate link is a link to a tool or service where, if you click through and later sign up or buy, the company may pay us a commission. **It costs you nothing extra**, and in some cases a link may give you a discount or longer trial.
 
-Affiliate links on this site go through addresses that begin with `/go/`, and they are marked in the page code as sponsored. Articles and tool profiles that contain affiliate links show a notice near the top.
+{{affiliate.status}}
+
+Affiliate links on this site go through addresses that begin with `/go/`, and they are marked in the page code as sponsored. Articles and tool profiles that contain affiliate links show a notice near the top. Links without that notice are plain links.
 
 ## What affiliate links do not do
 
